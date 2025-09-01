@@ -6,22 +6,12 @@ This repo contains a complete, reproducible pipeline (config → solve → check
 
 ---
 
-## Table of Contents
-- [Installation]
-- [Features] · [Benefits]
-- [Using AWLA]
-- [Data Format]
-- [Outputs]
-- [Reproducibility]
-· [License]
-
----
 
 ## Installation
 
-```bash
+bash
 # clone your repo
-git clone https://github.com/....
+git clone 
 cd REPO
 
 # create an isolated environment (recommended)
@@ -177,16 +167,5 @@ The resolved config from your run directory
 
 Command used and the error/traceback
 
-Contributing
-
-For now, this is a submission artefact. If you extend it:
-
-please add tests under code/tests/
-
-keep data small/anonymised
-
-avoid committing secrets or large files
-
-License
 
 MIT — see LICENSE.
