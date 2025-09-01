@@ -1,0 +1,6 @@
+code,severity,where,detail
+BASELINE_ELIG,WARN,baseline_plan.csv,17 baseline rows not in eligibility; will be penalised/forbidden depending on settings.
+AV_ROWS,INFO,availability.csv,All staff have availability entries for all periods.
+ELIG_COVERAGE,INFO,eligibility.csv,"Eligible staff per duty — min 3, median 6, max 9"
+FEASIBILITY,INFO,global,Required hours 1087.0 ≤ staff max 2583.0 (OK)
+PREF_STATS,INFO,preferences.csv,"60 rows; 29 rewards, 31 penalties."

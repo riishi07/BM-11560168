@@ -1,0 +1,13 @@
+staff_id_1,staff_id_2,conflict_type,weight
+S002,S018,line_manager_pairing_avoid,1
+S020,S024,line_manager_pairing_avoid,1
+S014,S018,personal_conflict,1
+S006,S017,line_manager_pairing_avoid,1
+S018,S024,line_manager_pairing_avoid,1
+S009,S019,personal_conflict,1
+S001,S014,personal_conflict,1
+S020,S022,cannot_co_teach,10
+S010,S011,line_manager_pairing_avoid,1
+S011,S015,personal_conflict,1
+S011,S012,cannot_co_teach,10
+S002,S019,line_manager_pairing_avoid,1

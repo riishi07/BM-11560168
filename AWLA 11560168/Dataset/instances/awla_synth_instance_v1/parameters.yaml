@@ -1,0 +1,76 @@
+meta:
+  schema_version: '1.0'
+  instance: awla_synth_instance_v1
+  periods:
+  - P1
+  - P2
+  - P3
+  updated: '2025-08-27T00:10:47Z'
+  calibration_notes: Targets calibrated to match total duty-hours; TS:TR ratio fixed
+    at 1.5.
+weights:
+  fairness_L1: 10
+  pref: 1
+  team_balance: 2
+  split: 5
+  stability: 3
+  grade_guardrail: 0
+  cross_campus: 0
+  unavailability_near_hard: 10000
+fairness:
+  metric: L1
+  normalize_by: fte
+  lexicographic: true
+  epsilon: 0.01
+  acceptable_band:
+  - 0.9
+  - 1.1
+wam_adapter:
+  default_target_hours:
+    TR: 43.74
+    TS: 65.61
+  buyout_adjustments: []
+  preallocations_mode: credit
+solver:
+  method: matheuristic
+  backend: cbc
+  threads: auto
+  ilp_time_sec: 300
+  ilp_mip_gap: 0.0
+  hh_time_sec: 1200
+  seed: 42
+  acceptor: lahc
+  lahc_length: 2000
+  neighbourhood:
+    operators:
+    - reassign
+    - swap
+    - block_move
+    - split_merge
+    block_move_size: 3
+    reassign_bias_topk_percent: 20
+  repair:
+    enable: true
+    mini_ilp_time_sec: 20
+    mini_ilp_topk_modules: 5
+checker:
+  availability_zero_is_hard: true
+  baseline_stability_include_only_eligible: true
+  max_split_modules_warn: 9999
+reports:
+  band_green:
+  - 0.95
+  - 1.05
+  band_amber:
+  - 0.9
+  - 1.1
+  outlier_abs_hours: 10
+  emit_excel: true
+  emit_csv: true
+  emit_json: true
+logging:
+  run_id_prefix: awla_run
+  log_level: INFO
+  save_assignment_csv: true
+  save_violations_csv: true
+  save_objective_breakdown_json: true

@@ -1,0 +1,25 @@
+staff_id,name,contract_type,fte,grade,team,campus,line_manager_id,target_hours,max_hours
+S001,Staff 01,TR,0.9,Lecturer,FIN,Main,,72.0,96.0
+S002,Staff 02,TR,1.0,Senior Lecturer,OM,Main,,80.0,104.0
+S003,Staff 03,TS,0.9,Lecturer,OM,Main,S001,108.0,137.0
+S004,Staff 04,TR,1.0,Senior Lecturer,OM,Main,S002,80.0,100.0
+S005,Staff 05,TS,0.9,Senior Lecturer,IS,City,S001,108.0,142.0
+S006,Staff 06,TR,0.6,Senior Lecturer,IS,City,S002,48.0,67.0
+S007,Staff 07,TS,0.8,Senior Lecturer,MKT,City,S002,96.0,125.0
+S008,Staff 08,TR,1.0,Lecturer,IS,Main,,80.0,103.0
+S009,Staff 09,TS,0.9,Reader,FIN,Main,S002,108.0,139.0
+S010,Staff 10,TS,0.8,Lecturer,IS,Main,S002,96.0,128.0
+S011,Staff 11,TS,0.7,Reader,MKT,Main,,84.0,105.0
+S012,Staff 12,TR,0.5,Senior Lecturer,FIN,Main,,40.0,55.0
+S013,Staff 13,TR,1.0,Lecturer,IS,City,S001,80.0,102.0
+S014,Staff 14,TS,0.9,Reader,MKT,City,S001,108.0,141.0
+S015,Staff 15,TS,0.7,Senior Lecturer,FIN,Main,S002,84.0,105.0
+S016,Staff 16,TR,1.0,Senior Lecturer,MKT,City,S002,80.0,109.0
+S017,Staff 17,TS,0.9,Reader,MKT,City,S001,108.0,142.0
+S018,Staff 18,TR,0.8,Senior Lecturer,OM,City,S002,64.0,81.0
+S019,Staff 19,TS,0.5,Reader,OM,Main,,60.0,80.0
+S020,Staff 20,TS,0.9,Senior Lecturer,IS,City,S002,108.0,136.0
+S021,Staff 21,TS,0.9,Senior Lecturer,FIN,Main,S001,108.0,138.0
+S022,Staff 22,TR,0.7,Reader,IS,City,,56.0,79.0
+S023,Staff 23,TS,0.7,Senior Lecturer,MKT,City,S002,84.0,105.0
+S024,Staff 24,TR,0.6,Lecturer,OM,Main,S001,48.0,64.0

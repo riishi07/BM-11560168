@@ -1,0 +1,318 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AWLA Config Schema",
+  "type": "object",
+  "required": [
+    "meta",
+    "weights",
+    "fairness",
+    "wam_adapter",
+    "solver",
+    "checker",
+    "reports",
+    "logging"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "periods",
+        "units"
+      ],
+      "properties": {
+        "schema_version": {
+          "type": "string"
+        },
+        "project": {
+          "type": "string"
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "hours",
+            "points"
+          ]
+        },
+        "periods": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "weights": {
+      "type": "object",
+      "required": [
+        "fairness_L1",
+        "pref",
+        "split",
+        "stability",
+        "unavailability_near_hard"
+      ],
+      "properties": {
+        "fairness_L1": {
+          "type": "number",
+          "minimum": 0
+        },
+        "pref": {
+          "type": "number",
+          "minimum": 0
+        },
+        "team_balance": {
+          "type": "number",
+          "minimum": 0
+        },
+        "split": {
+          "type": "number",
+          "minimum": 0
+        },
+        "stability": {
+          "type": "number",
+          "minimum": 0
+        },
+        "grade_guardrail": {
+          "type": "number",
+          "minimum": 0
+        },
+        "cross_campus": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unavailability_near_hard": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "fairness": {
+      "type": "object",
+      "required": [
+        "metric",
+        "normalize_by",
+        "lexicographic",
+        "acceptable_band"
+      ],
+      "properties": {
+        "metric": {
+          "type": "string",
+          "enum": [
+            "L1",
+            "L2"
+          ]
+        },
+        "normalize_by": {
+          "type": "string",
+          "enum": [
+            "fte",
+            "target",
+            "none"
+          ]
+        },
+        "lexicographic": {
+          "type": "boolean"
+        },
+        "epsilon": {
+          "type": "number",
+          "minimum": 0
+        },
+        "acceptable_band": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "wam_adapter": {
+      "type": "object",
+      "required": [
+        "default_target_hours"
+      ],
+      "properties": {
+        "default_target_hours": {
+          "type": "object",
+          "required": [
+            "TR",
+            "TS"
+          ],
+          "properties": {
+            "TR": {
+              "type": "number",
+              "minimum": 0
+            },
+            "TS": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "buyout_adjustments": {
+          "type": "array"
+        },
+        "preallocations_mode": {
+          "type": "string",
+          "enum": [
+            "credit",
+            "duties"
+          ]
+        }
+      }
+    },
+    "solver": {
+      "type": "object",
+      "required": [
+        "method",
+        "backend",
+        "ilp_time_sec",
+        "hh_time_sec",
+        "seed",
+        "acceptor"
+      ],
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": [
+            "ilp",
+            "matheuristic",
+            "hyper"
+          ]
+        },
+        "backend": {
+          "type": "string",
+          "enum": [
+            "cbc",
+            "gurobi",
+            "cp-sat"
+          ]
+        },
+        "threads": {
+          "type": [
+            "string",
+            "integer"
+          ]
+        },
+        "ilp_time_sec": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ilp_mip_gap": {
+          "type": "number",
+          "minimum": 0
+        },
+        "hh_time_sec": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "seed": {
+          "type": "integer"
+        },
+        "acceptor": {
+          "type": "string",
+          "enum": [
+            "lahc",
+            "threshold_sa"
+          ]
+        },
+        "lahc_length": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "neighbourhood": {
+          "type": "object"
+        },
+        "repair": {
+          "type": "object"
+        }
+      }
+    },
+    "checker": {
+      "type": "object",
+      "required": [
+        "availability_zero_is_hard",
+        "baseline_stability_include_only_eligible"
+      ],
+      "properties": {
+        "availability_zero_is_hard": {
+          "type": "boolean"
+        },
+        "baseline_stability_include_only_eligible": {
+          "type": "boolean"
+        },
+        "max_split_modules_warn": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "reports": {
+      "type": "object",
+      "properties": {
+        "band_green": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "band_amber": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "outlier_abs_hours": {
+          "type": "number",
+          "minimum": 0
+        },
+        "emit_excel": {
+          "type": "boolean"
+        },
+        "emit_csv": {
+          "type": "boolean"
+        },
+        "emit_json": {
+          "type": "boolean"
+        }
+      }
+    },
+    "logging": {
+      "type": "object",
+      "required": [
+        "run_id_prefix"
+      ],
+      "properties": {
+        "run_id_prefix": {
+          "type": "string"
+        },
+        "log_level": {
+          "type": "string",
+          "enum": [
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR"
+          ]
+        },
+        "save_assignment_csv": {
+          "type": "boolean"
+        },
+        "save_violations_csv": {
+          "type": "boolean"
+        },
+        "save_objective_breakdown_json": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

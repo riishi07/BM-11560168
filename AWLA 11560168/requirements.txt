@@ -1,0 +1,26 @@
+# ===== Core numerics & data =====
+numpy==1.26.4
+pandas==2.2.2
+scipy==1.11.4
+
+
+# ===== Config / CLI / progress =====
+PyYAML==6.0.2          # load code/config.yaml
+click==8.1.7           # optional CLI entrypoints if you add them
+tqdm==4.66.4           # progress bars for long runs
+rich==13.7.1           # nicer console logs (optional but lightweight)
+
+# ===== I/O (spreadsheets & env) =====
+openpyxl==3.1.2        # read/write .xlsx inputs/outputs
+XlsxWriter==3.2.0      # fast writing of results tables to Excel
+python-dotenv==1.0.1   # manage local secrets/paths via .env (don’t commit .env)
+
+# ===== Plotting  =====
+matplotlib==3.8.4
+
+
+# Notes:
+# - Pinned for Python 3.11. If you standardize on a different minor version,
+#   keep these pins but verify with `pip install -r code/requirements.txt`.
+# - Keep heavy/optional packages out unless truly required (e.g., OR-Tools/DEAP).
+# - Tests/linters are kept in requirements-dev.txt (pre-commit, ruff, black, pytest).
