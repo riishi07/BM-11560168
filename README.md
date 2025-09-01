@@ -29,7 +29,7 @@ source .venv/bin/activate            # Windows: .venv\Scripts\activate
 # install runtime requirements
 pip install -r requirements.txt
 
-**Features**
+## Features
 
 Full pipeline: config resolution → solver (naive or optimiser) → checker → reports.
 
